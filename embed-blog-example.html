@@ -1,0 +1,32 @@
+<link href="style.css" media="all" rel="stylesheet">
+
+<div id="blogfeed-container"></div>
+
+<script type="text/javascript">
+function mbtlist(json){
+
+	var SHOWMAXPOSTS=5;
+
+	//get total posts
+	for (var i = 0; i < json.feed.entry.length; i++){
+		var TotalPosts = json.feed.openSearch$totalResults.$t;
+	}
+	//show post in div
+	for(i=0;i<Math.min(SHOWMAXPOSTS,TotalPosts);i++){
+		document.getElementById("blogfeed-container").innerHTML+=buildArticleHtml(json.feed.entry[i]);
+	}
+}
+
+function feedFormatDate(dateStr){
+	var newdate=new Date(dateStr);
+	return (newdate.getMonth()+1) + "/" + newdate.getDate() + "/" + newdate.getFullYear();
+}
+
+function buildArticleHtml(entry){
+
+	return '<div class="blogfeed-article"><div class="blogfeed-article-title"><a href="'+entry.link[4].href+'" target="_blank">'+entry.title.$t+'</a></div><div class="blogfeed-article-details">by <span class="blogfeed-article-author">'+entry.author[0].name.$t+'</span> on <span class="blogfeed-article-date">'+feedFormatDate(entry.updated.$t)+'</span></div><div class="blogfeed-article-body">'+entry.content.$t+'</div></div>';
+
+}
+</script>
+
+<script type="text/javascript" src="http://google.blogspot.com/feeds/posts/default?alt=json-in-script&callback=mbtlist"></script>

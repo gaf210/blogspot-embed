@@ -1,0 +1,41 @@
+#blogfeed-container{
+	background:rgba(255,255,255,0.9);
+	color:#333;
+	width:100%;
+	height:700px;
+	overflow:auto;
+}
+
+.blogfeed-article{
+	padding:5px;
+	font-size:12px;
+	font-family: 'Century Gothic',sans-serif;
+	margin-bottom:30px;
+}
+
+.blogfeed-article-title{
+	font-size:20px;
+	font-weight:bold;
+}
+
+.blogfeed-article-title a{
+	text-decoration:none;
+	color:#333;
+}
+
+.blogfeed-article-title a:hover{
+	text-decoration:underline;
+}
+
+.blogfeed-article-details{
+	font-size:10px;
+	font-variant:italic;
+}
+
+.blogfeed-article-body{
+	padding-top:20px;
+}
+
+.blogfeed-article-body div{
+	line-height:normal !important;
+}
